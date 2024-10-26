@@ -1,0 +1,42 @@
+# Node.js modülleri
+node_modules/
+
+# Derleme çıktıları
+dist/
+build/
+
+# Çevre değişkenleri dosyaları
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Log dosyaları
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# IDE ve çalışma ortamı dosyaları
+.vscode/
+.idea/
+*.sublime-workspace
+
+# İşletim sistemi dosyaları
+.DS_Store
+Thumbs.db
+
+# API ve istemci klasörleri içindeki özel dosyalar
+api/node_modules/
+client/node_modules/
+api/.env
+client/.env
+api/build/
+client/build/
+api/dist/
+client/dist/
+
+# Diğer geçici dosyalar
+*.log
+coverage/
