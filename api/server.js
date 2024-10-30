@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const dotenv= require("dotenv");
 const app = express();
 const port = 5000;
+const cors= require("cors")
 
 //routes
 const categoryRoute=require("./routes/categories.js");
@@ -23,8 +24,9 @@ const connect = async()=>{
     } catch (error) {
         console.log(error)
     }
-}
+};
 
+app.use(cors());
 app.use(express.json());
 app.use("/api/categories",categoryRoute);
 app.use("/api/products",productRoute);
