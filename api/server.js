@@ -3,7 +3,8 @@ const mongoose = require("mongoose");
 const dotenv= require("dotenv");
 const app = express();
 const port = 5000;
-const cors= require("cors")
+const cors= require("cors");
+const logger = require("morgan");
 
 //routes
 const categoryRoute=require("./routes/categories.js");
@@ -19,7 +20,10 @@ dotenv.config();
 const connect = async()=>{
 
     try {
-        await mongoose.connect(process.env.MONGO_URI)
+        await mongoose.connect(process.env.MONGO_URI,{
+        useNewUrlParser: true, 
+        useUnifiedTopology: true
+        })
         console.log("Connected to mongoDB")
     } catch (error) {
         console.log(error)
@@ -28,6 +32,8 @@ const connect = async()=>{
 
 app.use(cors());
 app.use(express.json());
+app.use(logger("dev"));
+
 app.use("/api/categories",categoryRoute);
 app.use("/api/products",productRoute);
 app.use("/api/bills",billRoute);
